@@ -1,5 +1,5 @@
-var canvas = document.querySelector("#myCanvas");
-var context = canvas.getContext("2d");
+var canvas = document.querySelector('div');
+var context = canvas.getContext('2d');
 
 var canvasPos = getPosition(canvas);
 var mouseX = 0;
@@ -10,7 +10,7 @@ var yPos = 0;
 var dX = 0;
 var dY = 0;
 
-canvas.addEventListener("mousemove", setMousePosition, false);
+canvas.addEventListener('mousemove', setMousePosition, false);
 
 function setMousePosition(e) {
 	mouseX = e.clientX - canvasPos.x;
@@ -28,7 +28,7 @@ function animate() {
 
 	context.beginPath();
 	context.arc(xPos - sqSize / 2, yPos - sqSize / 2, sqSize, 0, Math.PI*2, false);
-	context.strokeStyle="#f7f3f0";
+	context.strokeStyle = '#f7f3f0';
 	context.stroke();
 
 	requestAnimationFrame(animate);
@@ -36,8 +36,8 @@ function animate() {
 animate();
 
 // deal with the page getting resized or scrolled
-window.addEventListener("scroll", updatePosition, false);
-window.addEventListener("resize", updatePosition, false);
+window.addEventListener('scroll', updatePosition, false);
+window.addEventListener('resize', updatePosition, false);
 
 function updatePosition() {
 	canvasPos = getPosition(canvas);
@@ -49,7 +49,7 @@ function getPosition(el) {
 	var yPos = 0;
 
 	while (el) {
-		if (el.tagName == "BODY") {
+		if (el.tagName == 'BODY') {
 			// deal with browser quirks with body/window/document and page scroll
 			var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
 			var yScroll = el.scrollTop || document.documentElement.scrollTop;
